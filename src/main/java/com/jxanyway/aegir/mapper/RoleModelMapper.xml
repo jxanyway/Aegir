@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.RoleDao">
+
+	<!-- 根据登录用户GUID查找角色名列表-->
+	<select id="FindAllRoleList" parameterType="String" resultMap="RoleListMap">
+	<![CDATA[
+			SELECT ROLE_GUID,
+			       ROLE_NAMEZH, 
+			       ROLE_NAMEEN, 
+			       ROLE_DESCRIBE, 
+			       ROLE_ISACTIVE 
+			FROM 
+			       T_ROLE 		
+	]]>
+	</select>
+
+	<resultMap id="RoleListMap" type="com.jxanyway.aegir.model.RoleModel">
+		<id property="ROLE_GUID" column="ROLE_GUID" />
+		<result property="ROLE_NAMEZH" column="ROLE_NAMEZH" />
+		<result property="ROLE_NAMEEN" column="ROLE_NAMEEN" />
+		<result property="ROLE_OWNER" column="ROLE_OWNER" />
+		<result property="ROLE_ISACTIVE" column="ROLE_ISACTIVE" />
+		<result property="ROLE_DESCRIBE" column="ROLE_DESCRIBE" />
+		<result property="ROLE_DATE" column="ROLE_DATE" />
+	</resultMap>
+
+
+</mapper>

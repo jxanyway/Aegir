@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.CustomFieldDao">
+
+	<!-- 列出公司设置=》货币种类 -->
+	<select id="FindCurrency" parameterType="String" resultMap="CurrencyMap">
+	<![CDATA[
+		SELECT 
+		      CUSTOMFIELD_FIELD_2,
+		      CUSTOMFIELD_FIELD_3 
+		FROM 
+		      T_CUSTOMFIELD 
+		WHERE 
+		      CUSTOMFIELD_TYPE = #{CUSTOMFIELD_TYPE} AND CUSTOMFIELD_FIELD_1 = #{CUSTOMFIELD_FIELD_1} 		
+	]]>
+	</select>
+	<resultMap id="CurrencyMap" type="com.jxanyway.aegir.model.CustomFieldModel">
+		<id property="CUSTOMFIELD_GUID" column="CUSTOMFIELD_GUID" />
+		<result property="CUSTOMFIELD_TYPE" column="CUSTOMFIELD_TYPE" />
+		<result property="CUSTOMFIELD_FIELD_1" column="CUSTOMFIELD_FIELD_1" />
+		<result property="CUSTOMFIELD_FIELD_2" column="CUSTOMFIELD_FIELD_2" />
+		<result property="CUSTOMFIELD_FIELD_3" column="CUSTOMFIELD_FIELD_3" />	
+	</resultMap>
+	
+</mapper>

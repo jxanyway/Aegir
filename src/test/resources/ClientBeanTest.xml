@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+ 
+    <jaxws:client id="helloClient"
+                  serviceClass="com.jxanyway.aegir.HelloWorld.HelloWorld"
+                  address="http://127.0.0.1:8081/Aegir/webservice/HelloWorld" />
+                  
+    <jaxws:client id="RoleManageClient"
+                  serviceClass="com.jxanyway.aegir.webservice.RoleManageWebService"
+                  address="http://127.0.0.1:8081/Aegir/webservice/RoleManage" />
+</beans>

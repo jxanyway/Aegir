@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.AttachmentDao">
+
+	<!-- 查询 -->
+	<select id="FindAllAttachment" parameterType="String" resultMap="FindAllAttachmentMap">
+	<![CDATA[
+			
+	]]>
+	</select>
+	<resultMap id="FindAllAttachmentMap" type="com.jxanyway.aegir.model.AttachmentModel">
+		<id property="ATTACHMENT_GUID" column="ATTACHMENT_GUID" />
+		<result property="ATTACHMENT_TYPE" column="ATTACHMENT_TYPE" />
+		<result property="ATTACHMENT_DATA" column="ATTACHMENT_DATA" jdbcType="BLOB" />
+		<result property="ATTACHMENT_DATE" column="ATTACHMENT_DATE" />		
+	</resultMap>
+	
+	<!-- 插入 -->
+	<insert id="InsertToAttachment" parameterType="com.jxanyway.aegir.model.AttachmentModel">
+	<![CDATA[
+			INSERT INTO T_ATTACHMENT(
+									 ATTACHMENT_GUID,
+									 ATTACHMENT_TYPE, 
+									 ATTACHMENT_DATA, 
+									 ATTACHMENT_DATE)
+							   VALUES(
+							          CREATEGUID(), 
+							          #{ATTACHMENT_TYPE}, 
+							          #{ATTACHMENT_DATA},
+							          SYSDATE)
+	]]>
+	</insert>
+	
+	
+</mapper>

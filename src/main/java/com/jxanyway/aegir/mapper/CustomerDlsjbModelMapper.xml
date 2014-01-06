@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.CustomerDljbDao">
+
+	<!-- 插入经销商名单 -->
+	<insert id="InsertToCustomerDlsjb" parameterType="com.jxanyway.aegir.model.CustomerDlsjbModel">
+	<![CDATA[
+		INSERT INTO T_CUSTOMERDLSJB
+								 VALUES (
+								    CREATEGUID
+								   , #{CUSTOMERDLSJB_CATEGORY}
+								   , #{CUSTOMERDLSJB_NAME})
+		
+	]]>
+	</insert>
+	
+	<!-- 根据类别查询数据 -->
+	<select id="FindCustomerDlsjb" parameterType="String" resultMap="FindCustomerDlsjbMap">
+	<![CDATA[
+		SELECT 
+			  CUSTOMERDLSJB_CATEGORY
+			, CUSTOMERDLSJB_NAME 
+		FROM
+		     T_CUSTOMERDLSJB 
+		WHERE
+		     CUSTOMERDLSJB_CATEGORY = #{CATEGORY}	
+	]]>
+	</select>
+
+	<resultMap id="FindCustomerDlsjbMap" type="com.jxanyway.aegir.model.CustomerDlsjbModel">
+
+		<id property="CUSTOMERDLSJB_GUID" column="CUSTOMERDLSJB_GUID" />
+		<result property="CUSTOMERDLSJB_CATEGORY" column="CUSTOMERDLSJB_CATEGORY" />
+		<result property="CUSTOMERDLSJB_NAME" column="CUSTOMERDLSJB_NAME" />
+	</resultMap>
+	
+	
+</mapper>

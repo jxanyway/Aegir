@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.LoginUserDao">
+
+	<!-- 根据用户名查找用户 -->
+	<select id="FindloginUser" parameterType="String" resultMap="LoginUser">
+	<![CDATA[
+	
+		SELECT     
+				USERLOGIN_GUID
+		          ,USERLOGIN_NAME
+		          ,USERLOGIN_PASSWORD
+		          ,USERLOGIN_GROUP
+		          ,USERLOGIN_ROLES
+		          ,USERLOGIN_OWNER
+		          ,USERLOGIN_ISACTIVE
+		          ,USERLOGIN_IP
+		          ,USERLOGIN_REGDATE
+		          ,USERLOGIN_LOGINDATE
+		          ,USERLOGIN_LOGINNUMBER
+		    FROM
+		         T_USERLOGIN
+		    WHERE
+		          USERLOGIN_NAME=#{USERLOGIN_NAME}
+		
+	]]>
+	</select>
+
+	<resultMap id="LoginUser" type="com.jxanyway.aegir.model.LoginUserModel">
+
+		<id property="USERLOGIN_GUID" column="USERLOGIN_GUID" />
+		<result property="USERLOGIN_NAME" column="USERLOGIN_NAME" />
+		<result property="USERLOGIN_PASSWORD" column="USERLOGIN_PASSWORD" />
+		<result property="USERLOGIN_GROUP" column="USERLOGIN_GROUP" />
+		<result property="USERLOGIN_ROLES" column="USERLOGIN_ROLES" />
+		<result property="USERLOGIN_OWNER" column="USERLOGIN_OWNER" />
+		<result property="USERLOGIN_ISACTIVE" column="USERLOGIN_ISACTIVE" />
+		<result property="USERLOGIN_IP" column="USERLOGIN_IP" />
+		<result property="USERLOGIN_REGDATE" column="USERLOGIN_REGDATE" />
+		<result property="USERLOGIN_LOGINDATE" column="USERLOGIN_LOGINDATE" />
+		<result property="USERLOGIN_LOGINNUMBER" column="USERLOGIN_LOGINNUMBER" />
+
+	</resultMap>
+
+
+</mapper>

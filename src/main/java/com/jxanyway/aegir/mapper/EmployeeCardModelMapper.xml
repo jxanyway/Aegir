@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.HumanResourcesDao">
+
+	<!-- 根据用户名查找员工-->
+	<select id="FindEmployeeCard" parameterType="String" resultMap="EmployeeCard">
+	<![CDATA[
+		
+	]]>
+	</select>
+
+	<resultMap id="EmployeeCard" type="com.jxanyway.aegir.model.EmployeeCardModel">
+		<id property="USERDETAILS_GUID" column="USERDETAILS_GUID" />
+		<result property="USERLOGIN_GUID" column="USERLOGIN_GUID" />
+		<result property="USERDETAILS_ID" column="USERDETAILS_ID" />
+		<result property="USERDETAILS_NAME" column="USERDETAILS_NAME" />
+		<result property="USERDETAILS_SEX" column="USERDETAILS_SEX" />
+		<result property="USERDETAILS_BIRTHDAY" column="USERDETAILS_BIRTHDAY" />
+		<result property="USERDETAILS_PHONE" column="USERDETAILS_PHONE" />
+		<result property="USERDETAILS_MOBILEPHONE" column="USERDETAILS_MOBILEPHONE" />
+		<result property="USERDETAILS_SOCIALSECURITY" column="USERDETAILS_SOCIALSECURITY" />
+		<result property="USERDETAILS_DEPARTMENTS" column="USERDETAILS_DEPARTMENTS" />
+		<result property="USERDETAILS_STATE" column="USERDETAILS_STATE" />
+		<result property="USERDETAILS_SECURITYLEVEL" column="USERDETAILS_SECURITYLEVEL" />
+		<result property="USERDATAILS_WORKTIME" column="USERDATAILS_WORKTIME" />
+		<result property="USERDATAILS_DEPARTURE" column="USERDATAILS_DEPARTURE" />
+		<result property="USERDATAILS_ADDRESSBOOK" column="USERDATAILS_ADDRESSBOOK" />
+		<result property="USERDETAILS_OWNER" column="USERDETAILS_OWNER" />
+	</resultMap>
+
+
+</mapper>

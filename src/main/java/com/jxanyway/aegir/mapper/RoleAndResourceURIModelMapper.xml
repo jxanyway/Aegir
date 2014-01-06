@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.RoleAndResourceURIDao">
+
+	<!-- 根据资源GUID查找列表-->
+	<select id="FindRoleAndResourceURIList" parameterType="String" resultMap="RoleAndResourceURIListMap">
+	<![CDATA[
+		
+	]]>
+	</select>
+
+	<resultMap id="RoleAndResourceURIListMap" type="com.jxanyway.aegir.model.ResourceURIModel">
+		<id property="ROLEANDRESOURCEURI_GUID" column="ROLEANDRESOURCEURI_GUID" />
+		<result property="ROLE_GUID" column="ROLE_GUID" />
+		<result property="RESOURCEURI_GUID" column="RESOURCEURI_GUID" />
+		<result property="ROLEANDRESOURCEURI_ISACTIVE" column="ROLEANDRESOURCEURI_ISACTIVE" />
+		<result property="ROLEANDRESOURCEURI_OWNER" column="ROLEANDRESOURCEURI_OWNER" />				
+	</resultMap>
+
+
+</mapper>

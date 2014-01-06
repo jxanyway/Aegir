@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.UserDetailsDao">
+
+	<!-- 根据用户名查找用户 -->
+	<select id="FindUserDetails" parameterType="String" resultMap="UserDetails">
+	<![CDATA[
+	
+	SELECT     
+			USERDETAILS_GUID, 
+			USERLOGIN_GUID, 
+			USERDETAILS_NAME, 
+			USERDETAILS_SEX, 
+			USERDETAILS_BIRTHDAY, 
+			USERDETAILS_PHONE, 
+			USERDETAILS_MOBILEPHONE, 
+			USERDETAILS_OWNER, 
+			USERDETAILS_CREATEDATE
+     FROM
+          T_USERDETAILS
+     WHERE
+           USERLOGIN_GUID=#{USERLOGIN_GUID}
+		
+	]]>
+	</select>
+
+	<resultMap id="UserDetails" type="com.jxanyway.aegir.model.UserDetailsModel">
+
+		<id property="userDetails_guid" column="USERDETAILS_GUID" />
+		<result property="userLogin_guid" column="USERLOGIN_GUID"/>
+		<result property="userDetails_name" column="USERDETAILS_NAME" />
+		<result property="userDetails_sex" column="USERDETAILS_SEX" />
+		<result property="userDetails_birthday" column="USERDETAILS_BIRTHDAY" />
+		<result property="userDetails_phone" column="USERDETAILS_PHONE" />
+		<result property="userDetails_mobilephone" column="USERDETAILS_MOBILEPHONE" />
+		<result property="userDetails_owner" column="USERDETAILS_OWNER" />
+		<result property="userDetails_createDate" column="USERDETAILS_CREATEDATE" />
+		
+	</resultMap>
+
+
+</mapper>

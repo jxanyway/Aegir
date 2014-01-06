@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.ContactsDao">
+
+	<!-- 插入分销商联系人 -->
+	<insert id="InsertTOCustomerContacts" parameterType="com.jxanyway.aegir.model.ContactsModel">
+	<![CDATA[
+			INSERT INTO T_CONTACTS (
+									 CONTACTS_GUID
+									,CUSTOMER_GUID
+									,CONTACTS_PY
+									,CONTACTS_NAME
+									,CONTACTS_POSITION
+									,CONTACTS_MOBPHONE
+									,CONTACTS_TELEPHONE
+									,CONTACTS_FAX
+									,CONTACTS_EMAIL
+									,CONTACTS_SALES
+									,CONTACTS_PURCHASE
+									,CONTACTS_FINANCE
+									,CONTACTS_OWNER									
+									,CONTACTS_CREATEDATE)
+						VALUES (
+									 createguid()
+									,#{CUSTOMER_GUID}
+									,#{CONTACTS_PY}
+									,#{CONTACTS_NAME}
+									,#{CONTACTS_POSITION, jdbcType=VARCHAR}
+									,#{CONTACTS_MOBPHONE, jdbcType=VARCHAR}
+									,#{CONTACTS_TELEPHONE, jdbcType=VARCHAR}
+									,#{CONTACTS_FAX, jdbcType=VARCHAR}
+									,#{CONTACTS_EMAIL, jdbcType=VARCHAR}
+									,#{CONTACTS_SALES, jdbcType=VARCHAR}
+									,#{CONTACTS_PURCHASE, jdbcType=VARCHAR}
+									,#{CONTACTS_FINANCE, jdbcType=VARCHAR}
+									,#{CONTACTS_OWNER}									
+									,sysdate)
+		
+	]]>
+	</insert>
+	
+	<!-- 更新分销商联系人 -->
+	<update id="UpdateToCustomerContacts" parameterType="com.jxanyway.aegir.model.ContactsModel">
+	<![CDATA[
+			UPDATE T_CONTACTS SET 
+					CONTACTS_PY=#{CONTACTS_PY}
+					,CONTACTS_NAME=#{CONTACTS_NAME}
+					,CONTACTS_POSITION=#{CONTACTS_POSITION}
+					,CONTACTS_MOBPHONE=#{CONTACTS_MOBPHONE}
+					,CONTACTS_TELEPHONE=#{CONTACTS_TELEPHONE}
+					,CONTACTS_FAX=#{CONTACTS_FAX}
+					,CONTACTS_EMAIL=#{CONTACTS_EMAIL}
+					,CONTACTS_SALES=#{CONTACTS_SALES}
+					,CONTACTS_PURCHASE=#{CONTACTS_PURCHASE}
+					,CONTACTS_FINANCE=#{CONTACTS_FINANCE}
+					,CONTACTS_CREATEDATE=sysdate
+        WHERE 
+                    CONTACTS_GUID=#{CONTACTS_GUID}
+	]]>	
+	</update>
+	
+	
+	<!-- 根据ＧＵＩＤ查找分销商联系人名单 -->
+	<select id="FindCustomerContacts" parameterType="String" resultMap="CustomerContacts">
+	<![CDATA[
+		SELECT 
+		        CONTACTS_GUID
+		       ,CUSTOMER_GUID
+		       ,CONTACTS_ID
+		       ,CONTACTS_PY
+		       ,CONTACTS_NAME
+		       ,CONTACTS_POSITION
+		       ,CONTACTS_MOBPHONE
+		       ,CONTACTS_TELEPHONE
+		       ,CONTACTS_FAX
+		       ,CONTACTS_EMAIL
+		       ,CONTACTS_SALES
+		       ,CONTACTS_PURCHASE
+		       ,CONTACTS_FINANCE
+		       ,CONTACTS_ISACTIVE 
+	        
+		 FROM
+		       T_CONTACTS
+		 WHERE
+		       CUSTOMER_GUID = #{CUSTOMER_GUID}
+		
+	]]>
+	</select>
+	<resultMap id="CustomerContacts" type="com.jxanyway.aegir.model.ContactsModel">
+		<result property="CONTACTS_NAME" column="CONTACTS_NAME" />
+		<result property="CONTACTS_POSITION" column="CONTACTS_POSITION" />
+		<result property="CONTACTS_MOBPHONE" column="CONTACTS_MOBPHONE" />
+		<result property="CONTACTS_TELEPHONE" column="CONTACTS_TELEPHONE" />
+		<result property="CONTACTS_FAX" column="CONTACTS_FAX"/>	
+		<result property="CONTACTS_EMAIL" column="CONTACTS_EMAIL" />
+		<result property="CONTACTS_SALES" column="CONTACTS_SALES" />
+		<result property="CONTACTS_PURCHASE" column="CONTACTS_PURCHASE" />
+		<result property="CONTACTS_FINANCE" column="CONTACTS_FINANCE" />
+		<result property="CONTACTS_ISACTIVE" column="CONTACTS_ISACTIVE" />		
+	</resultMap>
+	
+	
+	<!-- 根据单位名称查找分销商联系人GUID -->
+	<select id="FindCustomerContactsGUID" parameterType="String" resultMap="CustomerContactsGUID">
+	<![CDATA[
+			SELECT
+			        CONTACTS_GUID
+			       ,CUSTOMER_GUID
+			FROM 
+			       T_CONTACTS T
+					
+	]]>
+	</select>
+	<resultMap id="CustomerContactsGUID" type="com.jxanyway.aegir.model.ContactsModel">
+		<id property="CONTACTS_GUID" column="CONTACTS_GUID" />
+		<result property="CUSTOMER_GUID" column="CUSTOMER_GUID" />
+		<result property="CONTACTS_ID" column="CONTACTS_ID" />
+		<result property="CONTACTS_PY" column="CONTACTS_PY" />
+		<result property="CONTACTS_NAME" column="CONTACTS_NAME" />
+		<result property="CONTACTS_POSITION" column="CONTACTS_POSITION" />
+		<result property="CONTACTS_MOBPHONE" column="CONTACTS_MOBPHONE" />
+		<result property="CONTACTS_TELEPHONE" column="CONTACTS_TELEPHONE" />
+		<result property="CONTACTS_EMAIL" column="CONTACTS_EMAIL" />
+		<result property="CONTACTS_SALES" column="CONTACTS_SALES" />
+		<result property="CONTACTS_PURCHASE" column="CONTACTS_PURCHASE" />
+		<result property="CONTACTS_FINANCE" column="CONTACTS_FINANCE" />
+		<result property="CONTACTS_ISACTIVE" column="CONTACTS_ISACTIVE" />		
+	</resultMap>
+	
+	<!-- 根据联系人GUID删除 -->
+	<delete id="DeleteCustomerContacts" parameterType="com.jxanyway.aegir.model.ContactsModel">
+		<![CDATA[
+			DELETE FROM T_CONTACTS WHERE CONTACTS_GUID=#{CONTACTS_GUID}
+		]]>
+	</delete>
+</mapper>

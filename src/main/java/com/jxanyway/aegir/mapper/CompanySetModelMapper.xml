@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.CompanySetDao">
+
+	
+	<select id="FindAllSet" parameterType="String" resultMap="FindAllSetMap">
+	<![CDATA[
+			
+	]]>
+	</select>
+
+	<resultMap id="FindAllSetMap" type="com.jxanyway.aegir.model.CompanySetModel">
+		<id property="COMPANYSET_GUID" column="COMPANYSET_GUID" />
+		<result property="COMPANYSET_CURRENCY" column="COMPANYSET_CURRENCY" />
+		<result property="COMPANYSET_TIAOMA" column="COMPANYSET_TIAOMA" />
+		<result property="COMPANYSET_FKFDZ" column="COMPANYSET_FKFDZ" />
+		<result property="COMPANYSET_SHFDZ" column="COMPANYSET_SHFDZ" />
+		<result property="COMPANYSET_MRSL" column="COMPANYSET_MRSL" />
+		<result property="COMPANYSET_SYSTEMUSERDX" column="COMPANYSET_SYSTEMUSERDX" />
+		<result property="COMPANYSET_PRINTDZ" column="COMPANYSET_PRINTDZ" />
+		<result property="COMPANYSET_HOMEPAGE" column="COMPANYSET_HOMEPAGE" />
+		<result property="COMPANYSET_TUBIAO" column="COMPANYSET_TUBIAO" />						
+	</resultMap>
+	
+	<insert id="InsertToCompanySet" parameterType="com.jxanyway.aegir.model.CompanySetModel">
+	<![CDATA[
+		INSERT INTO T_COMPANYSET (
+		                  COMPANYSET_GUID,
+                          COMPANYSET_CURRENCY, 
+                          COMPANYSET_TIAOMA, 
+                          COMPANYSET_FKFDZ, 
+                          COMPANYSET_SHFDZ, 
+                          COMPANYSET_MRSL, 
+                          COMPANYSET_SYSTEMUSERDX, 
+                          COMPANYSET_PRINTDZ, 
+                          COMPANYSET_HOMEPAGE, 
+                          COMPANYSET_TUBIAO)
+                  VALUES (
+                          CREATEGUID,
+                          #{COMPANYSET_CURRENCY, jdbcType=VARCHAR},
+                          #{COMPANYSET_TIAOMA, jdbcType=VARCHAR},
+                          #{COMPANYSET_FKFDZ, jdbcType=VARCHAR},
+                          #{COMPANYSET_SHFDZ, jdbcType=VARCHAR},
+                          #{COMPANYSET_MRSL, jdbcType=VARCHAR},
+                          #{COMPANYSET_SYSTEMUSERDX, jdbcType=VARCHAR},
+                          #{COMPANYSET_PRINTDZ, jdbcType=VARCHAR},
+                          #{COMPANYSET_HOMEPAGE, jdbcType=VARCHAR},
+                          #{COMPANYSET_TUBIAO, jdbcType=VARCHAR})
+	]]>
+	</insert>
+</mapper>

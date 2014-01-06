@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.LoggingDao">
+
+<insert id="InsertToLogging" parameterType="com.jxanyway.aegir.model.LoggingModel">
+<![CDATA[
+INSERT INTO T_LOGGING (LOGGING_GUID
+                      ,LOGGING_USERNAME
+                      ,LOGGING_NUMBER
+                      ,LOGGING_TYPE
+                      ,LOGGING_ACTION
+                      ,LOGGING_TARGET
+                      ,LOGGING_WANIP
+                      ,LOGGING_LANIP
+                      ,LOGGING_MAC
+                      ,LOGGING_TIME
+                      ,LOGGING_NOTE)
+               VALUES (CREATEGUID
+                      ,#{LOGGING_USERNAME}
+                      ,#{LOGGING_NUMBER}
+                      ,#{LOGGING_TYPE}
+                      ,#{LOGGING_ACTION}
+                      ,#{LOGGING_TARGET}
+                      ,#{LOGGING_WANIP}
+                      ,#{LOGGING_LANIP}
+                      ,#{LOGGING_MAC}
+                      ,sysdate
+                      ,#{LOGGING_NOTE})	
+]]>
+
+</insert>
+
+</mapper>

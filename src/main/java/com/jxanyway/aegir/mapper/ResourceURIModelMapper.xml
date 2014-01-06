@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.ResourceURIDao">
+
+	<!-- 查找所有资源列表-->
+	<select id="FindAllResourceURIList" parameterType="String" resultMap="ResourceURIListMap">
+	<![CDATA[
+			SELECT 
+			       RESOURCEURI_GUID, 
+			       RESOURCEURI_URI, 
+			       RESOURCEURI_DESCRIBE, 
+			       RESOURCEURI_OWNER, 
+			       RESOURCEURI_ISACTIVE 
+			  FROM 
+			       T_RESOURCEURI		
+	]]>
+	</select>
+
+	<resultMap id="ResourceURIListMap" type="com.jxanyway.aegir.model.ResourceURIModel">
+		<id property="RESOURCEURI_GUID" column="RESOURCEURI_GUID" />
+		<result property="RESOURCEURI_URI" column="RESOURCEURI_URI" />
+		<result property="RESOURCEURI_DESCRIBE" column="RESOURCEURI_DESCRIBE" />
+		<result property="RESOURCEURI_OWNER" column="RESOURCEURI_OWNER" />
+		<result property="RESOURCEURI_ISACTIVE" column="RESOURCEURI_ISACTIVE" />				
+	</resultMap>
+
+
+</mapper>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.CustomerDao">
+
+	<!-- 插入经销商名单 -->
+	<insert id="InsertToCustomer" parameterType="com.jxanyway.aegir.model.CustomerModel">
+		
+	<![CDATA[
+		INSERT INTO T_CUSTOMER (
+                         CUSTOMER_GUID
+                        ,CUSTOMER_ID
+                        ,CUSTOMER_PY
+                        ,CUSTOMER_NAME
+                        ,CUSTOMER_TAXNUM
+                        ,CUSTOMER_LEVEL
+                        ,CUSTOMER_PROVINCE
+                        ,CUSTOMER_CITY
+                        ,CUSTOMER_DISTRICT
+                        ,CUSTOMER_ADDRESS
+                        ,CUSTOMER_MOBPHONE
+                        ,CUSTOMER_TELEPHONE
+                        ,CUSTOMER_FAX
+                        ,CUSTOMER_EMAIL
+                        ,CUSTOMER_SUMNUMBER
+                        ,CUSTOMER_CATEGORY
+                        ,CUSTOMER_TAX
+                        ,CUSTOMER_DISCOUNT
+                        ,CUSTOMER_DISCOUNTTO
+                        ,CUSTOMER_INTEGRAL
+                        ,CUSTOMER_NOTE
+                        ,CUSTOMER_OWNER
+                        ,CUSTOMER_CREATEDATE)
+                 values
+                        (createguid()
+                        ,''
+                        ,#{CUSTOMER_PY}
+                        ,#{CUSTOMER_NAME}
+                        ,#{CUSTOMER_TAXNUM}
+                        ,#{CUSTOMER_LEVEL}                      
+                        ,#{CUSTOMER_PROVINCE}
+                        ,#{CUSTOMER_CITY} 
+                        ,#{CUSTOMER_DISTRICT}                      
+                        ,#{CUSTOMER_ADDRESS}
+                        ,#{CUSTOMER_MOBPHONE}
+                        ,#{CUSTOMER_TELEPHONE}
+                        ,#{CUSTOMER_FAX}
+                        ,#{CUSTOMER_EMAIL}                        
+                        ,#{CUSTOMER_SUMNUMBER}
+                        ,#{CUSTOMER_CATEGORY}
+                        ,#{CUSTOMER_TAX}
+                        ,#{CUSTOMER_DISCOUNT}
+                        ,#{CUSTOMER_DISCOUNTTO}
+                        ,#{CUSTOMER_INTEGRAL}
+                        ,#{CUSTOMER_NOTE}
+                        ,#{CUSTOMER_OWNER}                        
+                        ,sysdate)
+	]]>		
+	</insert>
+	
+	<!-- 根据分销商名称查找 -->
+	<select id="FindCustomerGUID" parameterType="String" resultMap="FindCustomerMap">
+	<![CDATA[	
+			SELECT 
+					 CUSTOMER_GUID
+					,CUSTOMER_NAME
+			FROM
+					T_CUSTOMER
+			WHERE
+					CUSTOMER_NAME=#{CUSTOMER_NAME}	
+	]]>
+	</select>
+
+	<resultMap id="FindCustomerMap" type="com.jxanyway.aegir.model.CustomerModel">
+		<id property="CONTACTS_GUID" column="CONTACTS_GUID" />
+		<result property="CUSTOMER_NAME" column="CUSTOMER_NAME"/>
+	</resultMap>
+	
+	
+	<!--  查询经销商是否存在 -->
+	<select id="FindConutCustomerName" resultType="int">
+		SELECT COUNT(*) FROM T_CUSTOMER WHERE CUSTOMER_NAME=#{CUSTOMER_NAME}
+	</select>
+	
+</mapper>

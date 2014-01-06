@@ -1,0 +1,140 @@
+package com.jxanyway.aegir.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+* Copyright (c) 2012,嘉兴市安维信息技术有限公司软件事业部
+* All rights reserved.
+*
+* 文件名称：com.jxanyway.aegir.model.EmployeeCardModel.java
+* 文件标识：
+* 摘 要：员工卡实体类
+*
+* 当前版本：1.0
+* 作 者：徐国伟
+* 创建日期：2013-8-11
+*
+* 取代版本：1.0
+* 原作者 ：
+* 完成日期：
+*/
+public class EmployeeCardModel implements Serializable {
+
+	private static final long serialVersionUID = 1911456541312698602L;
+	
+	private String USERDETAILS_GUID;
+	private String USERLOGIN_GUID;
+	private String USERDETAILS_ID;
+	private String USERDETAILS_NAME;
+	private String USERDETAILS_SEX;
+	private Date USERDETAILS_BIRTHDAY;
+	private String USERDETAILS_PHONE;
+	private String USERDETAILS_MOBILEPHONE;
+	private String USERDETAILS_SOCIALSECURITY;
+	private String USERDETAILS_DEPARTMENTS;
+	private String USERDETAILS_STATE;
+	private String USERDETAILS_SECURITYLEVEL;
+	private Date USERDATAILS_WORKTIME;
+	private Date USERDATAILS_DEPARTURE;
+	private Integer USERDATAILS_ADDRESSBOOK;
+	private String USERDETAILS_OWNER;
+	
+	
+	public String getUSERDETAILS_GUID() {
+		return USERDETAILS_GUID;
+	}
+	public void setUSERDETAILS_GUID(String uSERDETAILS_GUID) {
+		USERDETAILS_GUID = uSERDETAILS_GUID;
+	}
+	public String getUSERLOGIN_GUID() {
+		return USERLOGIN_GUID;
+	}
+	public void setUSERLOGIN_GUID(String uSERLOGIN_GUID) {
+		USERLOGIN_GUID = uSERLOGIN_GUID;
+	}
+	public String getUSERDETAILS_ID() {
+		return USERDETAILS_ID;
+	}
+	public void setUSERDETAILS_ID(String uSERDETAILS_ID) {
+		USERDETAILS_ID = uSERDETAILS_ID;
+	}
+	public String getUSERDETAILS_NAME() {
+		return USERDETAILS_NAME;
+	}
+	public void setUSERDETAILS_NAME(String uSERDETAILS_NAME) {
+		USERDETAILS_NAME = uSERDETAILS_NAME;
+	}
+	public String getUSERDETAILS_SEX() {
+		return USERDETAILS_SEX;
+	}
+	public void setUSERDETAILS_SEX(String uSERDETAILS_SEX) {
+		USERDETAILS_SEX = uSERDETAILS_SEX;
+	}
+	public Date getUSERDETAILS_BIRTHDAY() {
+		return USERDETAILS_BIRTHDAY;
+	}
+	public void setUSERDETAILS_BIRTHDAY(Date uSERDETAILS_BIRTHDAY) {
+		USERDETAILS_BIRTHDAY = uSERDETAILS_BIRTHDAY;
+	}
+	public String getUSERDETAILS_PHONE() {
+		return USERDETAILS_PHONE;
+	}
+	public void setUSERDETAILS_PHONE(String uSERDETAILS_PHONE) {
+		USERDETAILS_PHONE = uSERDETAILS_PHONE;
+	}
+	public String getUSERDETAILS_MOBILEPHONE() {
+		return USERDETAILS_MOBILEPHONE;
+	}
+	public void setUSERDETAILS_MOBILEPHONE(String uSERDETAILS_MOBILEPHONE) {
+		USERDETAILS_MOBILEPHONE = uSERDETAILS_MOBILEPHONE;
+	}
+	public String getUSERDETAILS_SOCIALSECURITY() {
+		return USERDETAILS_SOCIALSECURITY;
+	}
+	public void setUSERDETAILS_SOCIALSECURITY(String uSERDETAILS_SOCIALSECURITY) {
+		USERDETAILS_SOCIALSECURITY = uSERDETAILS_SOCIALSECURITY;
+	}
+	public String getUSERDETAILS_DEPARTMENTS() {
+		return USERDETAILS_DEPARTMENTS;
+	}
+	public void setUSERDETAILS_DEPARTMENTS(String uSERDETAILS_DEPARTMENTS) {
+		USERDETAILS_DEPARTMENTS = uSERDETAILS_DEPARTMENTS;
+	}
+	public String getUSERDETAILS_STATE() {
+		return USERDETAILS_STATE;
+	}
+	public void setUSERDETAILS_STATE(String uSERDETAILS_STATE) {
+		USERDETAILS_STATE = uSERDETAILS_STATE;
+	}
+	public String getUSERDETAILS_SECURITYLEVEL() {
+		return USERDETAILS_SECURITYLEVEL;
+	}
+	public void setUSERDETAILS_SECURITYLEVEL(String uSERDETAILS_SECURITYLEVEL) {
+		USERDETAILS_SECURITYLEVEL = uSERDETAILS_SECURITYLEVEL;
+	}
+	public Date getUSERDATAILS_WORKTIME() {
+		return USERDATAILS_WORKTIME;
+	}
+	public void setUSERDATAILS_WORKTIME(Date uSERDATAILS_WORKTIME) {
+		USERDATAILS_WORKTIME = uSERDATAILS_WORKTIME;
+	}
+	public Date getUSERDATAILS_DEPARTURE() {
+		return USERDATAILS_DEPARTURE;
+	}
+	public void setUSERDATAILS_DEPARTURE(Date uSERDATAILS_DEPARTURE) {
+		USERDATAILS_DEPARTURE = uSERDATAILS_DEPARTURE;
+	}
+	public Integer getUSERDATAILS_ADDRESSBOOK() {
+		return USERDATAILS_ADDRESSBOOK;
+	}
+	public void setUSERDATAILS_ADDRESSBOOK(Integer uSERDATAILS_ADDRESSBOOK) {
+		USERDATAILS_ADDRESSBOOK = uSERDATAILS_ADDRESSBOOK;
+	}
+	public String getUSERDETAILS_OWNER() {
+		return USERDETAILS_OWNER;
+	}
+	public void setUSERDETAILS_OWNER(String uSERDETAILS_OWNER) {
+		USERDETAILS_OWNER = uSERDETAILS_OWNER;
+	}
+}

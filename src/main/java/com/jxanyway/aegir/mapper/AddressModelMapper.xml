@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxanyway.aegir.dao.AddressDao">
+
+<!-- 根据CustomerGuid 查询 -->
+	<select id="FindAddress" parameterType="String" resultMap="addressMap">
+	<![CDATA[
+			SELECT 
+				ADDRESS_GUID,
+				CUSTOMER_GUID,
+				ADDRESS_CATEGORY,
+				ADDRESS_NAME,
+				ADDRESS_PY,
+				ADDRESS_PROVINCE,
+				ADDRESS_CITY,
+				ADDRESS_DIST,
+				ADDRESS_STRET,
+				ADDRESS_ZIP,
+				ADDRESS_MOBPHONE,
+				ADDRESS_TEL,
+				ADDRESS_FAX,
+				ADDRESS_DEFAULT,
+				ADDRESS_DETAILED,
+				ADDRESS_OWNET,
+				ADDRESS_ISACTIVE,
+				ADDRESS_CREATEATE
+			FROM
+				T_ADDRESS
+			WHERE
+				CUSTOMER_GUID=#{CUSTOMER_GUID}		
+	]]>
+	</select>
+	<resultMap id="addressMap" type="com.jxanyway.aegir.model.AddressModel">
+		<id property="ADDRESS_GUID" column="ADDRESS_GUID" />
+		<result property="CUSTOMER_GUID" column="CUSTOMER_GUID" />
+		<result property="ADDRESS_CATEGORY" column="ADDRESS_CATEGORY" />
+		<result property="ADDRESS_NAME" column="ADDRESS_NAME" />
+		<result property="ADDRESS_PROVINCE" column="ADDRESS_PROVINCE" />
+		<result property="ADDRESS_CITY" column="ADDRESS_CITY" />
+		<result property="ADDRESS_DIST" column="ADDRESS_DIST" />
+		<result property="ADDRESS_STRET" column="ADDRESS_STRET" />
+		<result property="ADDRESS_ZIP" column="ADDRESS_ZIP" />
+		<result property="ADDRESS_MOBPHONE" column="ADDRESS_MOBPHONE" />
+		<result property="ADDRESS_TEL" column="ADDRESS_TEL" />
+		<result property="ADDRESS_FAX" column="ADDRESS_FAX" />
+		<result property="ADDRESS_DEFAULT" column="ADDRESS_DEFAULT" />
+		<result property="ADDRESS_DETAILED" column="ADDRESS_DETAILED" />
+		<result property="ADDRESS_OWNET" column="ADDRESS_OWNET" />
+		<result property="ADDRESS_ISACTIVE" column="ADDRESS_ISACTIVE" />
+		<result property="ADDRESS_CREATEATE" column="ADDRESS_CREATEATE" />
+	</resultMap>
+
+
+	<!-- 插入收货人地址 -->
+	<insert id="InsertTOAddress" parameterType="com.jxanyway.aegir.model.AddressModel">
+	<![CDATA[
+			INSERT INTO T_ADDRESS (
+									ADDRESS_GUID,
+									CUSTOMER_GUID,									
+									ADDRESS_NAME,									
+									ADDRESS_PROVINCE,
+									ADDRESS_CITY,
+									ADDRESS_DIST,																		
+									ADDRESS_MOBPHONE,
+									ADDRESS_DEFAULT,
+                  					ADDRESS_DETAILED,
+									ADDRESS_OWNET,									
+									ADDRESS_CREATEATE)
+						VALUES (
+									createguid(),									 
+									#{CUSTOMER_GUID},
+									#{ADDRESS_NAME},									
+									#{ADDRESS_PROVINCE, jdbcType=VARCHAR},
+									#{ADDRESS_CITY, jdbcType=VARCHAR},
+									#{ADDRESS_DIST, jdbcType=VARCHAR},																		
+									#{ADDRESS_MOBPHONE, jdbcType=VARCHAR},
+									#{ADDRESS_DEFAULT, jdbcType=VARCHAR},
+                  					#{ADDRESS_DETAILED, jdbcType=VARCHAR},
+									#{ADDRESS_OWNET},									
+									sysdate)
+		
+	]]>
+	</insert>
+	
+	
+	<!-- 根据GUID号删除收货人 -->
+	<delete id="DeleteConsignee" parameterType="com.jxanyway.aegir.model.AddressModel">
+		<![CDATA[
+			DELETE FROM T_ADDRESS WHERE ADDRESS_GUID=#{ADDRESS_GUID}
+		]]>
+	</delete>
+</mapper>
